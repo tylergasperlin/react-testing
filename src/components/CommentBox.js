@@ -1,10 +1,21 @@
 import React from 'react'
 
 export const CommentBox = () => {
+    const [comment, setComment] = React.useState('')
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        setComment(comment)
+        console.log(comment)
+    }
     return (
-        <div>
-            Comment box
-        </div>
+        <form onSubmit={handleSubmit}>
+            <h4> Add a comment </h4>
+            <textarea onChange={(e) => setComment(e.target.value)} value={comment}/>
+            <div>
+                <button>Submit Comment</button>
+            </div>
+        </form>
     )
 }
 
