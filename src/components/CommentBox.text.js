@@ -2,8 +2,17 @@ import React from 'react';
 import CommentBox from './CommentBox';
 import {mount} from 'enzyme';
 
+let wrapped;
+
+beforeEach(() => {
+    wrapped = mount(<CommentBox/>)
+})
+
+afterEach(() => {
+    wrapped.unmount();
+})
+
 it('has a text area and abutton', () => {
-    const wrapped = mount(<CommentBox/>)
     console.log(wrapped.find('button'))
     console.log(wrapped.find('textarea'))
     expect(wrapped.find('textarea').length).toEqual(1);
