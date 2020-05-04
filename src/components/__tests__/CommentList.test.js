@@ -20,3 +20,10 @@ beforeEach(() => {
 it('creates on LI per comment', () => {
     expect(wrapped.find('li').length).toEqual(3)
 })
+
+it('shows the text for each comment', () => {
+    expect(wrapped.render().text()).toContain('comment 1')
+    expect(wrapped.render().text()).toContain('comment 2')
+    expect(wrapped.render().text()).toContain('comment 3')
+
+})
