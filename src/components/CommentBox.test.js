@@ -4,7 +4,7 @@ import {mount} from 'enzyme';
 
 let wrapped;
 
-// Can also
+// Can also place connect and useSelector in side this
 jest.mock("react-redux", () => ({
     // connect: () => jest.fn(),
     // useSelector: jest.fn(fn => fn()),
