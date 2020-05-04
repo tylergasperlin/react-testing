@@ -1,12 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import * as actions from '../actions/index'
 
 export const CommentBox = () => {
     const [comment, setComment] = React.useState('')
+    const dispatch = useDispatch();
 
     const handleSubmit = event => {
         event.preventDefault();
+        dispatch(actions.saveComment(comment))
         setComment('')
-        console.log(comment)
     }
     return (
         <form onSubmit={handleSubmit}>
