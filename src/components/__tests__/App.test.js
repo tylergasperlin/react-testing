@@ -1,8 +1,8 @@
 import React from 'react';
-import App from './App';
+import App from '../App';
 import { shallow } from 'enzyme'
-import CommentBox from './CommentBox'
-import CommentList from './CommentList'
+import CommentBox from '../CommentBox'
+import CommentList from '../CommentList'
 
 let wrapper;
 
