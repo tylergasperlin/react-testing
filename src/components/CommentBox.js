@@ -11,6 +11,7 @@ export const CommentBox = () => {
         dispatch(actions.saveComment(comment))
         setComment('')
     }
+    
     return (
         <form onSubmit={handleSubmit}>
             <h4> Add a comment </h4>

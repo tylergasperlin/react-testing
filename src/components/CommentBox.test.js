@@ -1,8 +1,15 @@
 import React from 'react';
 import CommentBox from './CommentBox';
-import {mount, ReactWrapper} from 'enzyme';
+import {mount} from 'enzyme';
 
 let wrapped;
+
+// Can also
+jest.mock("react-redux", () => ({
+    // connect: () => jest.fn(),
+    // useSelector: jest.fn(fn => fn()),
+    useDispatch: () => jest.fn()
+}));
 
 beforeEach(() => {
     wrapped = mount(<CommentBox/>)
