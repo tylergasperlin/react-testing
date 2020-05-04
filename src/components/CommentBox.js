@@ -5,7 +5,7 @@ export const CommentBox = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        setComment(comment)
+        setComment('')
         console.log(comment)
     }
     return (
