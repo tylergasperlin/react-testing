@@ -1,26 +1,33 @@
-import React from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import * as actions from '../actions/index'
+import * as actions from '../actions/index';
 
 export const CommentBox = () => {
-    const [comment, setComment] = React.useState('')
+    const [comment, setComment] = React.useState('');
     const dispatch = useDispatch();
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(actions.saveComment(comment))
-        setComment('')
+        dispatch(actions.saveComment(comment));
+        setComment('');
+    };
+
+    const handleClick = () => {
+        dispatch(actions.fetchComments())
     }
-    
+
     return (
-        <form onSubmit={handleSubmit}>
-            <h4> Add a comment </h4>
-            <textarea onChange={(e) => setComment(e.target.value)} value={comment}/>
-            <div>
-                <button>Submit Comment</button>
-            </div>
-        </form>
-    )
-}
+        <div>
+            <form onSubmit={handleSubmit}>
+                <h4> Add a comment </h4>
+                <textarea onChange={(e) => setComment(e.target.value)} value={comment} />
+                <div>
+                    <button>Submit Comment</button>
+                </div>
+            </form>
+            <button onClick={handleClick}>Fetch Comments</button>
+        </div>
+    );
+};
 
 export default CommentBox;
