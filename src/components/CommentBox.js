@@ -25,7 +25,7 @@ export const CommentBox = () => {
                     <button>Submit Comment</button>
                 </div>
             </form>
-            <button onClick={handleClick}>Fetch Comments</button>
+            <button className="fetch-comments" onClick={handleClick}>Fetch Comments</button>
         </div>
     );
 };
