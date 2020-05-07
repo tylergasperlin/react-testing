@@ -16,7 +16,7 @@ afterEach(() => {
     moxios.uninstall();
 })
 
-it('cant fetch a list of comments and display them', () => {
+it('cant fetch a list of comments and display them', (done) => {
     // Render the app
     const wrapped = mount(
         <Root>
@@ -25,6 +25,12 @@ it('cant fetch a list of comments and display them', () => {
     )
     // Fetch comments
     wrapped.find('.fetch-comments').simulate('click')
+
+    setTimeout(() => {
+        wrapped.update()
+        expect(wrapped.find('li').length).toEqual(2);
+        done()
+        wrapped.unmount()
+    }, 100);
     // expect to find a list of comments
-    expect(wrapped.find('li').length).toEqual(2);
 })
